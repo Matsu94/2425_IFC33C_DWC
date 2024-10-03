@@ -1,4 +1,10 @@
 /*css tret de https://github.com/LFeh/piano/blob/master/dev/assets/css/style.css*/
+
+@font-face {
+    font-family: 'Pianombre';
+    src: URL('Pianombre.ttf');
+  }
+
 .piano {
     background: -webkit-linear-gradient(-65deg, #000000, #222222, #000000, #666666, #222222 75%);
     background: -moz-linear-gradient(-65deg, #000000, #222222, #000000, #666666, #222222 75%);
@@ -9,6 +15,7 @@
     padding: 0 1% 3%;
     text-align: center;
     border-radius: 10px;
+    margin-top: 1%;
 }
 
 .key {
@@ -64,4 +71,50 @@
 .key .black-key.active {
     border-bottom-width: 3px;
     top: 0;
+}
+
+body {
+    background-image: url("pianobackground.jpg");
+}
+
+#nombre {
+    display: block;
+    color: #000;
+    text-shadow: 0 0 5px #FFF;
+    text-align: center;
+    margin-top: 3%;
+    font-size: 70px;
+    font-family: Pianombre;
+} 
+
+#grid {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+    margin-top: 10px;
+}
+
+#busqueda {
+    border: 5px solid #000;
+    box-shadow: 0 0 10px #FFF,
+            inset 0 0 10px #FFF;
+    justify-content: center;
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#del, .rep {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
 }
