@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: azure;
+            margin-top: 20%;
+            text-align: center;
+            font-size: 30px;
+        }
+        button {
+            font-size: larger;
+        }
+    </style>
+</head>
+<!-- asdasdasda -->
+<body>
+
+<button id="replaceA">A</button>
+<button id="replaceE">E</button>
+<button id="replaceI">I</button>
+<button id="replaceO">O</button>
+<button id="replaceU">U</button>
+
+<p id="demo">Una mosca volava per la llum</p>
+
+<script>
+    let replaceLetter;  // Default replace letter
+
+    // Function to replace vowels based on the selected letter
+    function replaceVowels() {
+        let text = document.getElementById("demo").innerHTML;
+
+        // Replace vowels (both uppercase and lowercase)
+        const newText = text.replace(/[aeiouAEIOU]/g, function(match) {
+            // If the vowel is different from the chosen replacement letter
+            if (match.toLowerCase() !== replaceLetter.toLowerCase()) {
+                // If the original match is uppercase, uppercase
+                return match === match.toUpperCase() ? replaceLetter.toUpperCase() : replaceLetter;
+            }
+            return match;
+        });
+
+        document.getElementById("demo").innerHTML = newText;
+    }
+
+    // Event listeners for the buttons
+    document.getElementById("replaceA").addEventListener("click", function() {
+        replaceLetter = "a";
+        replaceVowels();
+    });
+
+    document.getElementById("replaceE").addEventListener("click", function() {
+        replaceLetter = "e";
+        replaceVowels();
+    });
+
+    document.getElementById("replaceI").addEventListener("click", function() {
+        replaceLetter = "i";
+        replaceVowels();
+    });
+
+    document.getElementById("replaceO").addEventListener("click", function() {
+        replaceLetter = "o";
+        replaceVowels();
+    });
+
+    document.getElementById("replaceU").addEventListener("click", function() {
+        replaceLetter = "u";
+        replaceVowels();
+    });
+
+</script>
+
+</body>
+</html>
