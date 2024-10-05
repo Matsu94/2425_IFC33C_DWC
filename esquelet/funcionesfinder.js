@@ -1,21 +1,30 @@
 let notas = [];
-
 let resultadosEncontrados = [];
 
-function busqueda(notas, listaCanciones) {
+function busqueda(notas, listaCanciones, resultadosEncontrados) {
+    
     let largo = notas.length;
+
     for (let i = 0; i <= listaCanciones.length; i++) {
-        for (let j = 0; j <= listaCanciones[i].notas.length; j++) {
-            if (notas[i] ===  listaCanciones.notas[j]) {
-                
-            }            
+        for (let j = 0; j <= listaCanciones[i].notas.length - largo; j++) {
+            let valido = 0;
+            let k = j;
+
+            while (valido <= largo && notas[valido] === listaCanciones[i].notas[k]) {
+                k++
+                valido++                    
+            }
         }
+
+        if (valido == largo) {
+            resultadosEncontrados.push(listaCanciones[i].cancion)
+        }   break;
         
     }
 }
 
 document.getElementsByClassName("key").addEventListener("click", function() {
-    notas.push(innerHTML);
+    notas.push(this.innerHTML);
 });
 
 let listaCanciones = [
