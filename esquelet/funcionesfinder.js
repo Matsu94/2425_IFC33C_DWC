@@ -27,20 +27,43 @@ function busqueda(notas, listaCanciones, resultadosEncontrados) {
 }
 
 window.onload = function() {
-    let keys = document.getElementsByClassName("key");
+let keys = document.getElementsByClassName("key");
 
-    for (let i = 0; i < keys.length; i++) {
-        keys[i].addEventListener("click", function() {
-            let nota = this.querySelector(".white-key, .black-key").textContent; 
+for (let i = 0; i < keys.length; i++) {
+    let whiteKey = keys[i].querySelector(".white-key");
+    if (whiteKey) {
+        whiteKey.addEventListener("click", function() {
+            let nota = whiteKey.innerHTML;
             notas.push(nota);
             busqueda(notas, listaCanciones, resultadosEncontrados);
-
             document.getElementById("notas").innerHTML = notas.join(" ");
-            document.getElementById("resultats").innerHTML = resultadosEncontrados.map(cancion => `
-                <div>${cancion}</div>
+            document.getElementById("resultats").innerHTML = resultadosEncontrados.map((cancion, index) => `
+            <div>
+                ${cancion} 
+                <button class="rep" data-index="${index}">Reproducir Canción</button>
+            </div>
             `).join("");
+        
         });
     }
+
+    let blackKey = keys[i].querySelector(".black-key");
+    if (blackKey) {
+        blackKey.addEventListener("click", function() {
+            let nota = blackKey.innerHTML;
+            notas.push(nota);
+            busqueda(notas, listaCanciones, resultadosEncontrados);
+            document.getElementById("notas").innerHTML = notas.join(" ");
+            document.getElementById("resultats").innerHTML = resultadosEncontrados.map((cancion, index) => `
+            <div>
+                ${cancion} 
+                <button class="rep" data-index="${index}">Reproducir Canción</button>
+            </div>
+            `).join("");
+
+        });
+    }
+}
 
     document.getElementById("del").addEventListener("click", function() {
         notas = [];
@@ -48,6 +71,7 @@ window.onload = function() {
         document.getElementById("notas").innerHTML = "";
         document.getElementById("resultats").innerHTML = "";
     });
+
 };
 
 
@@ -100,6 +124,18 @@ let listaCanciones = [
 // });
 
    
-   
+    let keys = document.getElementsByClassName("key");
+
+    for (let i = 0; i < keys.length; i++) {
+        keys[i].addEventListener("click", function() {
+            let nota = this.querySelector(".white-key, .black-key").textContent; 
+            notas.push(nota);
+            busqueda(notas, listaCanciones, resultadosEncontrados);
+
+            document.getElementById("notas").innerHTML = notas.join(" ");
+            document.getElementById("resultats").innerHTML = resultadosEncontrados.map(cancion => `<div>${cancion}</div>`).join("");
+        });
+    }
+
    
    */ 
