@@ -1,3 +1,4 @@
+/*
 let jsonObj = {
     squadName: "Super hero squad",
     homeTown: "Metro City",
@@ -62,7 +63,7 @@ function formatSquad(jsonObj) {
 console.log(formatSquad(jsonObj));
 
 
-/* VALE, PARA EL 3 SOLO HAY QUE CONTAR LETRAS
+ VALE, PARA EL 3 SOLO HAY QUE CONTAR LETRAS
 
 let texto1 = "Alan b"
 let texto2 = "Lana b"
@@ -81,7 +82,6 @@ function anagramable(texto1, texto2) {
 
 }
 
-*/
 
 
 let texto1 = "Alan b"
@@ -106,3 +106,94 @@ function anagramable(texto1, texto2) {
 
 
 console.log(texto1 + " y " + texto2 + (anagramable(texto1, texto2) ? " Son Anagramas" : " No son Anagramas")); // Output: true
+
+
+// EJ 1 (2)
+
+function myFunction() {
+    let rand = Math.floor((Math.random() * 10) + 1);
+    alert('Rando = ' + rand);
+    let numero = prompt('Dame un numero entre el 1 y el 10');
+    while (numero > 10 | numero < 1) {
+        numero = prompt('Dame un numero entre el 1 y el 10');
+    }
+    if (rand == numero) {
+        alert('¡Enhorabuena, has acertado!')
+    } else {
+        alert('Lo sentimos, NO has acertado.')
+    }
+}
+
+
+// EJ 2 (2)
+
+const letras = new Map([
+    ["T", 0],
+    ["R", 1],
+    ["W", 2],
+    ["A", 3],
+    ["G", 4],
+    ["M", 5],
+    ["Y", 6],
+    ["F", 7],
+    ["P", 8],
+    ["D", 9],
+    ["X", 10],
+    ["B", 11],
+    ["N", 12],
+    ["J", 13],
+    ["Z", 14],
+    ["S", 15],
+    ["Q", 16],
+    ["V", 17],
+    ["H", 18],
+    ["L", 19],
+    ["C", 20],
+    ["K", 21],
+    ["E", 22]
+  ]);
+
+class NIF {
+    constructor(number, letter) {
+        this.number = number;
+        this.letter = letter;
+    }
+    esCorrecto(number) {
+        if (this.number.toString().length !== 7) {
+            return false;
+        }
+        if (letras.get(this.letter) !== (this.number%23)) {
+            return false;
+        }
+        return true;
+    }
+
+}
+
+
+
+// EJ 3 (2)
+
+let array = [15];
+
+for (let i = 0; i < array.length; i++) {
+    array[i] = Math.floor(Math.random() * 15)
+}
+
+for (let j = 0; j < array.length; j++) {
+        console.log("Elemento: " + j);
+    for (let k = 0; k < array[j]; k++) {
+        console.log("*")
+    }
+    
+}
+*/
+// GPT
+/*
+let array = Array.from({ length: 15 }, () => Math.floor(Math.random() * 15));
+
+for (let j = 0; j < array.length; j++) {
+    console.log("Elemento: " + j);
+    console.log("*".repeat(array[j]));
+}
+*/ 
