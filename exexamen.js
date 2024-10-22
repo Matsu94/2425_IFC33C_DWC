@@ -174,7 +174,7 @@ class NIF {
 
 // EJ 3 (2)
 
-let array = [15];
+let array = new Array(15);
 
 for (let i = 0; i < array.length; i++) {
     array[i] = Math.floor(Math.random() * 15)
@@ -187,13 +187,101 @@ for (let j = 0; j < array.length; j++) {
     }
     
 }
-*/
 // GPT
-/*
+
 let array = Array.from({ length: 15 }, () => Math.floor(Math.random() * 15));
 
 for (let j = 0; j < array.length; j++) {
     console.log("Elemento: " + j);
     console.log("*".repeat(array[j]));
 }
-*/ 
+*/
+
+
+// ITERACIONES DE LO QUE SEA
+let n = 10;
+let a = [10, 2, 3, 4, 5, -6, 7, 8, 9, -1]
+
+// Print all even numbers from 0 – 10
+/*
+for (let i = 0; i < n/2 + 1; i++) {
+    console.log(2*i)
+}
+
+// Print a table containing multiplication tables
+
+for (let i = 0; i <= n; i++) {
+    console.log("Tabla del " + i + ":\n")
+    for (let j = 0; j <= 10; j++) {
+        console.log(j + " * " + i + " = " + j*i)        
+    }
+    console.log("")
+}
+
+// Create a length converter function m to km
+
+function converter(value) {
+    console.log(value + "m son " + value/1000 + "km")
+}
+
+converter(2000)
+
+
+// Calculate the sum of numbers within an array
+
+let suma = 0;
+let suma2 = 0;
+
+for (let i = 0; i < a.length; i++) {
+    suma += a[i] 
+}
+
+console.log(suma)
+
+let ar = new Array(n);
+for (let j = 0; j < ar.length; j++) {
+    ar[j] = Math.floor(Math.random() * (n+1));
+    suma2 += ar[j];
+}
+
+let array = Array.from({ length: n }, () => Math.floor(Math.random() * (n+1)));
+
+console.log(ar + "\n" + suma2);
+
+// Create a function that reverses an array
+
+function inverter(array) {
+
+    let arrayInverso = new Array(array.length); // EN JS TMB PUEDO PONER SOLO = [] NO IMPORTA ESPECIFICAR 
+                                                // LARGO PARA LLENAR DE MANERA DIFERENTE A HABITUAL
+    for (let i = 0; i < array.length; i++) {
+        arrayInverso[array.length -1 - i] = array[i];
+    }
+
+    return arrayInverso;
+}
+
+console.log(inverter(a))
+
+
+// Sort an array from lowest to highest
+
+console.log(a.sort(function(a, b){return a - b}));
+*/
+
+// Create a function that filters out negative numbers
+
+function siemprePositivo(array) {
+
+    let arrayPos = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > 0) {
+            arrayPos.push(array[i]);
+        }
+    }
+
+    return arrayPos;
+}
+
+console.log(siemprePositivo(a));
