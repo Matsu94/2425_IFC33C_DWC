@@ -201,6 +201,7 @@ for (let j = 0; j < array.length; j++) {
 // ITERACIONES DE LO QUE SEA
 let n = 10;
 let a = [10, 2, 3, 4, 5, -6, 7, 8, 9, -1]
+let s = "Texto random con estacios"
 
 // Print all even numbers from 0 – 10
 /*
@@ -267,7 +268,6 @@ console.log(inverter(a))
 // Sort an array from lowest to highest
 
 console.log(a.sort(function(a, b){return a - b}));
-*/
 
 // Create a function that filters out negative numbers
 
@@ -285,3 +285,63 @@ function siemprePositivo(array) {
 }
 
 console.log(siemprePositivo(a));
+
+// Remove the spaces found in a string
+
+let trimmed = s.replaceAll(" ", "")
+
+console.log(trimmed);
+
+// Return a Boolean if a number is divisible by 10
+
+console.log(n%10 === 0);
+
+// Return the number of vowels in a string
+
+console.log("Hay " + s.match(/a|e|i|o|u/gi).length + " vocales.")
+
+// Create a function that finds the maximum number in an array
+
+function mayor(array) {
+    let m = array[0]
+    for (let i = 0; i < array.length; i++) {
+        if (m < array[i]) {
+            m = array[i]
+        }
+    }
+    console.log("El valor más alto (en terminnos no absolutos) del array " + a + " es: " + m)
+}
+
+mayor(a);
+
+// Check if a string is a palindrome
+
+let pli = "kayaks";
+let pl = "acurrucas";
+
+function evaluadorPali(string) {
+    let low = string.toLowerCase();
+    let pali = true;
+
+    if (low.length % 2 === 0) {
+        for (let i = 0; i < low.length/2; i++) {
+            if (low[i] !== low[low.length-i-1]) {
+                pali = false;
+                break;
+            }            
+        }
+    } else {
+        for (let i = 0; i < (low.length -1)/2; i++) {
+            if (low[i] !== low[low.length-i-1]) {
+                pali = false;
+                break;
+            }            
+        }
+    }
+    console.log(pali)
+    console.log(pali ? "Es palindromo" : "No es palindromo");
+}
+
+evaluadorPali(pl);
+
+*/
