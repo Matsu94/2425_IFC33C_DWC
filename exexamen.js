@@ -195,10 +195,9 @@ for (let j = 0; j < array.length; j++) {
     console.log("Elemento: " + j);
     console.log("*".repeat(array[j]));
 }
-*/
 
 
-// ITERACIONES DE LO QUE SEA
+// ITERACIONES DE LO QUE SEA000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 let n = 10;
 let a = [10, 2, 3, 4, 5, -6, 7, 8, 9, -1]
 let s = "Texto random con estacios"
@@ -344,4 +343,125 @@ function evaluadorPali(string) {
 
 evaluadorPali(pl);
 
+Tasques cícliques
+Les famílies Galmés, Duran i Sastre volen planificar les tasques setmanals que
+han de fer a les seves respectives cases per repartir-les equitativament entre els
+seus membres.	
+La família Galmés consta de: pare, mare, fill i filla i les seves tasques són: posar
+la rentadora, fer la cuina neta i fer el bany net.	
+La família Duran consta de: pare, mare, fill i filla i només vol repartir dues
+tasques setmanals: planxar i fer el bany net.	
+Finalment, la família Sastre consta de: pare, mare, fill, filla gran i filla petita i vol
+repartir 5 tasques: posar la rentadora, fer la cuina neta, netejar la casa, planxar i fer
+el bany net.	
+La família Galmés vol una planificació anual de les seves tasques (52 setmanes).	
+La família Duran, en canvi, vol una planificació mensual de 4 setmanes.	
+La família Sastre, vol una planificació de 12 setmanes, és a dir, trimestral.	
+Creeu un algorisme (només un) que resolgui qualsevol d'aquestes casuístiques
+(o d'altres futures) i que mostri per pantalla la solució proporcionada per tal que,
+cada setmana, el programa digui quina tasca ha de fer cada membre de la família.
+
+
+let tasquesG = ["rentadora", "cuina", "bany"]
+let tasquesD = ["planxar", "bany"]
+let tasquesS = ["rentadora", "cuina", "bany", "casa", "planxar"]
+
+let galmes = ["pare", "mare", "fill", "filla"]
+let duran = ["pare", "mare", "fill", "filla"]
+let sastre = ["pare", "mare", "fill", "fillag", "fillap"]
+
+let n = 52;
+
+function repartidor(ints, arrayt, arrayf) {
+    
+    for (let i = 0; i < ints; i++) {
+
+        let f = [];
+        let t = [];
+        let u = arrayt.length;
+        let p = u
+
+        for (let j = 0; j < u; j++) {
+            let a = Math.floor(Math.random() * arrayf.length);
+            if (!f.includes(a)) {
+                f.push(a)
+            } else {
+                u++
+            }
+        }
+        for (let j = 0; j < p; j++) {
+            let a = Math.floor(Math.random() * arrayt.length);
+            if (!t.includes(a)) {
+                t.push(a)
+            } else {
+                p++
+            }
+        }
+        let semana = "";
+        for (let l = 0; l < t.length; l++) {
+            semana+= (" " + arrayf[f[l]] + " " + arrayt[t[l]] + " |")            
+        }
+        console.log(`Semana ${i+1}:` + semana)
+    }
+
+}
+
+repartidor(4, tasquesD, duran)
+
+
+
+// GPT EN BASE A MIS ERRORES
+
+let tasquesG = ["rentadora", "cuina", "bany"];
+let tasquesD = ["planxar", "bany"];
+let tasquesS = ["rentadora", "cuina", "bany", "casa", "planxar"];
+
+let galmes = ["pare", "mare", "fill", "filla"];
+let duran = ["pare", "mare", "fill", "filla"];
+let sastre = ["pare", "mare", "fill", "fillag", "fillap"];
+
+function repartidor(ints, arrayt, arrayf) {
+    let tasksPerWeek = arrayt.length;  // Number of tasks to assign each week
+
+    // Loop for each week
+    for (let i = 0; i < ints; i++) {
+        let f = [];  // Assigned family members for the week
+        let t = [];  // Assigned tasks for the week
+        
+        // Assign a family member for each task
+        for (let j = 0; j < tasksPerWeek; j++) {
+            let memberIndex;
+            do {
+                memberIndex = Math.floor(Math.random() * arrayf.length);
+            } while (f.includes(memberIndex));  // Retry if the member is already assigned
+            
+            f.push(memberIndex);
+        }
+        
+        // Assign a unique task for each family member
+        for (let j = 0; j < tasksPerWeek; j++) {
+            let taskIndex;
+            do {
+                taskIndex = Math.floor(Math.random() * arrayt.length);
+            } while (t.includes(taskIndex));  // Retry if the task is already assigned
+            
+            t.push(taskIndex);
+        }
+
+        // Construct the output for the current week
+        let semana = "";
+        for (let l = 0; l < t.length; l++) {
+            semana += (` ${arrayf[f[l]]} ${arrayt[t[l]]} |`);
+        }
+        console.log(`Semana ${i + 1}:` + semana);
+    }
+}
+
+repartidor(12, tasquesS, sastre);  // Example: Assign tasks for 2 weeks
+
+
+
 */
+// GPT SOLO CON EL ENUNCIADO
+
+// HIZO BASURA Y DSPS ALGO SIMILAR PERO ROTANDO SOLO A LOS FAMILIARES
