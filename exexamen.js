@@ -462,6 +462,54 @@ repartidor(12, tasquesS, sastre);  // Example: Assign tasks for 2 weeks
 
 
 */
-// GPT SOLO CON EL ENUNCIADO
+// GPT SOLO CON EL ENUNCIADO [LA CAGÓ PRIMERO Y DSPS SIMPLEMENTE HIZO QUE ROTASEN LOS FAMILIARES]
 
-// HIZO BASURA Y DSPS ALGO SIMILAR PERO ROTANDO SOLO A LOS FAMILIARES
+// Family tasks
+let tasquesG = ["rentadora", "cuina", "bany"]; // 3 tasks for Galmés
+let tasquesD = ["planxar", "bany"]; // 2 tasks for Duran
+let tasquesS = ["rentadora", "cuina", "bany", "casa", "planxar"]; // 5 tasks for Sastre
+
+// Family members
+let galmes = ["pare", "mare", "fill", "filla"]; // Galmés family
+let duran = ["pare", "mare", "fill", "filla"]; // Duran family
+let sastre = ["pare", "mare", "fill", "fillag", "fillap"]; // Sastre family
+
+// Function to assign tasks cyclically
+function repartidor(weeks, familyMembers, familyTasks) {
+    let numMembers = familyMembers.length;
+    let numTasks = familyTasks.length;
+
+    // Ensure there are enough family members for the tasks
+    if (numTasks > numMembers) {
+        console.log("Error: Not enough family members for all tasks.");
+        return;
+    }
+
+    for (let i = 0; i < weeks; i++) {
+        console.log(`Setmana ${i + 1}:`);
+
+        // For each week, assign tasks cyclically but without duplicates
+        let assignedMembers = [];
+        let assignedTasks = [];
+        
+        for (let j = 0; j < numTasks; j++) {
+            let memberIndex = (i + j) % numMembers; // Rotate family members
+            let taskIndex = j % numTasks; // Rotate tasks
+
+            // Assign a unique task to a unique member per week
+            console.log(`${familyMembers[memberIndex]} -> ${familyTasks[taskIndex]}`);
+            assignedMembers.push(familyMembers[memberIndex]);
+            assignedTasks.push(familyTasks[taskIndex]);
+        }
+        console.log("--------------------------");
+    }
+}
+
+// Galmés family, 52 weeks
+repartidor(52, galmes, tasquesG);
+
+// Duran family, 4 weeks
+repartidor(4, duran, tasquesD);
+
+// Sastre family, 12 weeks (quarterly)
+repartidor(12, sastre, tasquesS);
